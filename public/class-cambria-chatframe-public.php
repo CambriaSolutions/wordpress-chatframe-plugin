@@ -61,18 +61,6 @@ class Cambria_Chatframe_Public {
 	 */
 	public function enqueue_styles() {
 
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Cambria_Chatframe_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Cambria_Chatframe_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/cambria-chatframe-public.css', array(), $this->version, 'all' );
 
 	}
@@ -83,27 +71,17 @@ class Cambria_Chatframe_Public {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Cambria_Chatframe_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Cambria_Chatframe_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
+		global $wp;
+		$currentUrl =  home_url( $wp->request );
+		$acceptedUrl = "child-support";
 		
-		$pagename = get_query_var('pagename');
-		
-		if(get_query_var('pagename') !== 'page-4'){
-			echo "<script>console.log( \"This is in the loop;PHP LOG: $pagename\" );</script>";
-			wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/cambria-chatframe-public.js', array( 'jquery' ), $this->version, false );
+
+		if(strpos($currentUrl, $acceptedUrl) !== false){
+			echo "<script>console.log( \"$currentUrl\" );</script>";
 			wp_enqueue_script( 'demo', plugin_dir_url( __FILE__ ) . 'js/demo.9f68570d.js', array(), $this->version, true );
 			wp_enqueue_script( 'runtime', plugin_dir_url( __FILE__ ) . 'js/runtime.13df06eb.js', array(), $this->version, true);
 		}
-		echo "<script>console.log( \"PHP LOG: $pagename\" );</script>";
+		echo "<script>console.log( \"$acceptedUrl\" );</script>";
 	}
 
 }

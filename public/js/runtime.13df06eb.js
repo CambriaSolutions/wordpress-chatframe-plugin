@@ -1,4 +1,3 @@
-console.log('hi from runtime')
 !(function(e) {
   function r(r) {
     for (
