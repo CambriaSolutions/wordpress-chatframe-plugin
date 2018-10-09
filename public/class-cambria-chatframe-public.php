@@ -83,7 +83,6 @@ class Cambria_Chatframe_Public {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-
 		/**
 		 * This function is provided for demonstration purposes only.
 		 *
@@ -95,11 +94,16 @@ class Cambria_Chatframe_Public {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/cambria-chatframe-public.js', array( 'jquery' ), $this->version, false );
-		wp_enqueue_script( 'demo', plugin_dir_url( __FILE__ ) . 'js/demo.9f68570d.js', array(), $this->version, true );
-		wp_enqueue_script( 'runtime', plugin_dir_url( __FILE__ ) . 'js/runtime.13df06eb.js', array(), $this->version, true);
-
+		
+		$pagename = get_query_var('pagename');
+		
+		if(get_query_var('pagename') !== 'page-4'){
+			echo "<script>console.log( \"This is in the loop;PHP LOG: $pagename\" );</script>";
+			wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/cambria-chatframe-public.js', array( 'jquery' ), $this->version, false );
+			wp_enqueue_script( 'demo', plugin_dir_url( __FILE__ ) . 'js/demo.9f68570d.js', array(), $this->version, true );
+			wp_enqueue_script( 'runtime', plugin_dir_url( __FILE__ ) . 'js/runtime.13df06eb.js', array(), $this->version, true);
+		}
+		echo "<script>console.log( \"PHP LOG: $pagename\" );</script>";
 	}
 
 }
