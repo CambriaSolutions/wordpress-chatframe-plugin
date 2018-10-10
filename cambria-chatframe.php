@@ -21,8 +21,6 @@
  * Author URI:        cambriasolutions.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       cambria-chatframe
- * Domain Path:       /languages
  */
 
 // If this file is called directly, abort.
@@ -59,8 +57,7 @@ register_activation_hook( __FILE__, 'activate_cambria_chatframe' );
 register_deactivation_hook( __FILE__, 'deactivate_cambria_chatframe' );
 
 /**
- * The core plugin class that is used to define internationalization,
- * admin-specific hooks, and public-facing site hooks.
+ * The core plugin class that is used to define public-facing site hooks.
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-cambria-chatframe.php';
 

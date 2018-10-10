@@ -16,8 +16,7 @@
 /**
  * The core plugin class.
  *
- * This is used to define internationalization, admin-specific hooks, and
- * public-facing site hooks.
+ * This is used to define public-facing site hooks.
  *
  * Also maintains the unique identifier of this plugin as well as the current
  * version of the plugin.
@@ -75,7 +74,6 @@ class Cambria_Chatframe {
 		$this->plugin_name = 'cambria-chatframe';
 
 		$this->load_dependencies();
-		$this->set_locale();
 		$this->define_public_hooks();
 
 	}
@@ -86,7 +84,6 @@ class Cambria_Chatframe {
 	 * Include the following files that make up the plugin:
 	 *
 	 * - Cambria_Chatframe_Loader. Orchestrates the hooks of the plugin.
-	 * - Cambria_Chatframe_i18n. Defines internationalization functionality.
 	 * - Cambria_Chatframe_Public. Defines all hooks for the public side of the site.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
@@ -104,35 +101,12 @@ class Cambria_Chatframe {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-cambria-chatframe-loader.php';
 
 		/**
-		 * The class responsible for defining internationalization functionality
-		 * of the plugin.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-cambria-chatframe-i18n.php';
-
-		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-cambria-chatframe-public.php';
 
 		$this->loader = new Cambria_Chatframe_Loader();
-
-	}
-
-	/**
-	 * Define the locale for this plugin for internationalization.
-	 *
-	 * Uses the Cambria_Chatframe_i18n class in order to set the domain and to register the hook
-	 * with WordPress.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 */
-	private function set_locale() {
-
-		$plugin_i18n = new Cambria_Chatframe_i18n();
-
-		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
 	}
 
@@ -148,7 +122,6 @@ class Cambria_Chatframe {
 
 		$plugin_public = new Cambria_Chatframe_Public( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
 	}
