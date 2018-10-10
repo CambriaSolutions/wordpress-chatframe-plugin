@@ -75,13 +75,14 @@ class Cambria_Chatframe_Public {
 		$currentUrl =  home_url( $wp->request );
 		$acceptedUrl = "child-support";
 		
+		$parsedUrl = parse_url($currentUrl, PHP_URL_PATH);
 
-		if(strpos($currentUrl, $acceptedUrl) !== false){
-			echo "<script>console.log( \"$currentUrl\" );</script>";
+		if(strpos($parsedUrl, $acceptedUrl) !== false){
+			echo "<script>console.log( \"$parsedUrl\" );</script>";
 			wp_enqueue_script( 'demo', plugin_dir_url( __FILE__ ) . 'js/demo.9f68570d.js', array(), $this->version, true );
 			wp_enqueue_script( 'runtime', plugin_dir_url( __FILE__ ) . 'js/runtime.13df06eb.js', array(), $this->version, true);
 		}
-		echo "<script>console.log( \"$acceptedUrl\" );</script>";
+		echo "<script>console.log( \"$parsedUrl\" );</script>";
 	}
 
 }
