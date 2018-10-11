@@ -78,9 +78,8 @@ class Cambria_Chatframe_Public {
 			$JSfiles = scandir(dirname(__FILE__) . '/app/build/static/js/');
 			   $react_js_to_load = '';
 			   foreach($JSfiles as $filename) {
-				   if(strpos($filename,'.js')&&!strpos($filename,'.js.map')) {
+				   if(strpos($filename,'.js')) {
 					   $react_js_to_load = plugin_dir_url( __FILE__ ) . 'app/build/static/js/' . $filename;
-					   echo "<script>console.log( \"$react_js_to_load\" );</script>";
 					   wp_enqueue_script($filename, $react_js_to_load, array(), $this->version, true);
 				   }
 			   }
