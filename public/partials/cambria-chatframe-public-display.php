@@ -13,4 +13,4 @@
  */
 ?>
 
-<div id="demo"></div>
+<div id="root"></div>
