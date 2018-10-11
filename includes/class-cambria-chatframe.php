@@ -122,6 +122,8 @@ class Cambria_Chatframe {
 
 		$plugin_public = new Cambria_Chatframe_Public( $this->get_plugin_name(), $this->get_version() );
 
+		$this->loader->add_action( 'wp_footer', $plugin_public, 'display' );
+
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
 	}

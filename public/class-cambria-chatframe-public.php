@@ -54,6 +54,15 @@ class Cambria_Chatframe_Public {
 
 	}
 
+	/** 
+	 * Register the div with id "demo"
+	 * to be populated by our chat window
+	 */
+
+	public function display() {
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/partials/cambria-chatframe-public-display.php';
+	}
+
 	/**
 	 * Register the JavaScript for the public-facing side of the site.
 	 *
@@ -63,15 +72,17 @@ class Cambria_Chatframe_Public {
 		global $wp;
 		$currentUrl =  home_url( $wp->request );
 		$acceptedUrl = "child-support";
-		
 		$parsedUrl = parse_url($currentUrl, PHP_URL_PATH);
 
 		if(strpos($parsedUrl, $acceptedUrl) !== false){
-			echo "<script>console.log( \"$parsedUrl\" );</script>";
-			wp_enqueue_script( 'demo', plugin_dir_url( __FILE__ ) . 'js/demo.9f68570d.js', array(), $this->version, true );
-			wp_enqueue_script( 'runtime', plugin_dir_url( __FILE__ ) . 'js/runtime.13df06eb.js', array(), $this->version, true);
+			$JSfiles = scandir(dirname(__FILE__) . '/js/');
+			   $react_js_to_load = '';
+			   foreach($JSfiles as $filename) {
+				   if(strpos($filename,'.js')) {
+					   $react_js_to_load = plugin_dir_url( __FILE__ ) . 'js/' . $filename;
+					   wp_enqueue_script($filename, $react_js_to_load, array(), $this->version, true);
+				   }
+			   }
 		}
-		echo "<script>console.log( \"$parsedUrl\" );</script>";
 	}
-
 }
