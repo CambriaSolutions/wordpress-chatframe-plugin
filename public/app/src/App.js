@@ -11,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <Chatframe
-        primaryColor="#000000"
+        primaryColor="#3bafbf"
         secondaryColor="pink"
         title="Health Agency Virtual Assistant"
         client="Dialogflow"

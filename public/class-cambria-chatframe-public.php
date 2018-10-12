@@ -55,7 +55,7 @@ class Cambria_Chatframe_Public {
 	}
 
 	/** 
-	 * Register the div with id "demo"
+	 * Register the div with id "root"
 	 * to be populated by our chat window
 	 */
 
@@ -69,12 +69,33 @@ class Cambria_Chatframe_Public {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
+
+		/**
+		 * Grab the current url, parse out the path,
+		 * and reference against an array of accepted paths
+		 */
+
 		global $wp;
 		$currentUrl =  home_url( $wp->request );
-		$acceptedUrl = "child-support";
-		$parsedUrl = parse_url($currentUrl, PHP_URL_PATH);
+		$parsedUrlPath = parse_url($currentUrl, PHP_URL_PATH);
+		$acceptedPathArray = array("child-support", "page-3");
+		$arrayOfParsedUrlPath = explode("/", $parsedUrlPath);
+		$enqueueScripts = false;
 
-		if(strpos($parsedUrl, $acceptedUrl) !== false){
+
+
+		foreach($arrayOfParsedUrlPath as $thisPath){
+			if(in_array($thisPath, $acceptedPathArray)){
+				$enqueueScripts = true;
+			} 
+		}
+
+		/**
+		 * If the current Url is our list of accepted paths
+		 * load our chatframe scripts to the page 
+		 */
+
+		if($enqueueScripts){
 			$JSfiles = scandir(dirname(__FILE__) . '/app/build/static/js/');
 			   $react_js_to_load = '';
 			   foreach($JSfiles as $filename) {
