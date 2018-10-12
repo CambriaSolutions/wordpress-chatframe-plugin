@@ -70,23 +70,31 @@ class Cambria_Chatframe_Public {
 	 */
 	public function enqueue_scripts() {
 
+		// Array of paths that we want our window on
+
+		$acceptedPathArray = array("child-support", "page-3");
+
 		/**
 		 * Grab the current url, parse out the path,
-		 * and reference against an array of accepted paths
+		 * and separate by the / character
 		 */
 
 		global $wp;
 		$currentUrl =  home_url( $wp->request );
 		$parsedUrlPath = parse_url($currentUrl, PHP_URL_PATH);
-		$acceptedPathArray = array("child-support", "page-3");
 		$arrayOfParsedUrlPath = explode("/", $parsedUrlPath);
 		$enqueueScripts = false;
 
-
+		/**
+		 * Check if the any part of our current path contains
+		 * our white-listed paths, if so, mark enqueue scripts to
+		 * true and terminate the loop
+		 */
 
 		foreach($arrayOfParsedUrlPath as $thisPath){
 			if(in_array($thisPath, $acceptedPathArray)){
 				$enqueueScripts = true;
+				break;
 			} 
 		}
 
