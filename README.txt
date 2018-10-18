@@ -1,4 +1,4 @@
-=== Cambria Chatframe ===
+# === Cambria Chat Frame ===
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -9,7 +9,7 @@ This includes Cambria\’s chat frame as a react app.
 Inside the public/app/src folder you can customize the colors, 
 title, activation preferences, and the destination of the bot itself.
 
-== Prerequisits ==
+== Prerequisites ==
 1. Install WordPress locally 
 * [for mac](https://codex.wordpress.org/Installing_WordPress_Locally_on_Your_Mac_With_MAMP)
 * [for pc](https://codex.wordpress.org/Test_Driving_WordPress#Installing_WordPress_on_Your_Windows_Desktop)
@@ -22,22 +22,21 @@ title, activation preferences, and the destination of the bot itself.
 == Customization ==
 
 ### Incorporation the chatbot itself
-This plugin is designed to work with a [ Dialogflow ](https://dialogflow.com/) agent. The communication requires 
-two webhooks, one to communicate with the chat window, and one to communicate with the agent. Both URI/'s are set
+This plugin is designed to work with a [ Dialogflow ](https://dialogflow.com/docs) agent. The communication requires two web-hooks, one to communicate with the chat window, and one to communicate with the agent. Both URI/'s are set
 in `public/app/src/App.js` as `dfWebhookOptions`
-* `eventUrl` = dialogflow webhook
-* `textUrl` = function to send the user request from our chatframe to the webhook
+* `eventUrl` = dialogflow web-hook
+* `textUrl` = function to send the user request from our chat frame to the web hook
 
-Once these are populated under `dfWebhookOptions` they are passed to our window as a prop
+Once these are populated under `dfWebhookOptions` they are passed to our window as a prop.
 
 ### Styling the chat frame
 The following attributes are customizable in `public/app/src/App.js`
 1. `avatar` = the image used as an avatar 
-2. `primaryColor` = the color of the chatframe itself
+2. `primaryColor` = the color of the chat frame itself
 3. `secondaryColor` = the color of the suggestion buttons
 4. `title` = the name of the chatbot
-5. `fullscreen` = boolean specifying if the chatwindow should be fullscreen on start
-6. `initialActive` = boolean specifying if the chatwindow should open on page load
+5. `fullscreen` = boolean specifying if the chat window should be fullscreen on start
+6. `initialActive` = boolean specifying if the chat window should open on page load
 
 ### Building the chat frame
 At its core, the plugin pulls any js files from the `/app/build/static/js/` folder and injects them to whatever pages we 
