@@ -23,20 +23,19 @@
 class Cambria_Chatframe_Public {
 
 	/**
-	 * The ID of this plugin.
+	 * 
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $plugin_name    The ID of this plugin.
+	 * @var      string    $plugin_name   cambria-chatframe
 	 */
 	private $plugin_name;
 
 	/**
-	 * The version of this plugin.
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $version    The current version of this plugin.
+	 * @var      string    $version   1.0.0
 	 */
 	private $version;
 
@@ -44,8 +43,8 @@ class Cambria_Chatframe_Public {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @param      string    $plugin_name       The name of the plugin.
-	 * @param      string    $version    The version of this plugin.
+	 * @param      string    $plugin_name    
+	 * @param      string    $version    
 	 */
 	public function __construct( $plugin_name, $version ) {
 

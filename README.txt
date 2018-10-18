@@ -1,12 +1,18 @@
 # === Cambria Chat Frame ===
+Contributors: 
+Donate link: cambriasolutions.com
+Tags: 
+Requires at least: 3.0.1
+Tested up to: 3.4
+Stable tag: 4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This is a WordPress plugin for Cambria Solutions\' chat frame.
+This is a WordPress plugin for Cambria Solutions' chat frame.
 
 == Description ==
-This includes Cambria\’s chat frame as a react app. 
-Inside the public/app/src folder you can customize the colors, 
+This includes Cambria’s chat frame as a react app. 
+Inside the `public/app/src folder` you can customize the colors, 
 title, activation preferences, and the destination of the bot itself.
 
 == Prerequisites ==
@@ -16,18 +22,17 @@ title, activation preferences, and the destination of the bot itself.
 
 == Installation ==
 1. Upload `cambria-chatframe.php` to the `/wp-content/plugins` directory
-2. Activate the plugin through the \‘Plugins\’ menu in WordPress
+2. Activate the plugin through the `Plugins` menu in WordPress
 
 
 == Customization ==
 
 ### Incorporation the chatbot itself
-This plugin is designed to work with a [ Dialogflow ](https://dialogflow.com/docs) agent. The communication requires two web-hooks, one to communicate with the chat window, and one to communicate with the agent. Both URI/'s are set
-in `public/app/src/App.js` as `dfWebhookOptions`
+This plugin is designed to work with a [ Dialogflow ](https://dialogflow.com/docs) agent. The communication 
+requires two web-hooks, one to communicate with the chat window, and one to communicate with the agent. 
+Both URI/'s are set in `public/app/src/App.js` as `dfWebhookOptions`
 * `eventUrl` = dialogflow web-hook
 * `textUrl` = function to send the user request from our chat frame to the web hook
-
-Once these are populated under `dfWebhookOptions` they are passed to our window as a prop.
 
 ### Styling the chat frame
 The following attributes are customizable in `public/app/src/App.js`
@@ -45,5 +50,5 @@ have specified. Any changes to the app folder require `npm run build` or `yarn r
 To exclude map files from being generated, create a .env file in the root directory with `GENERATE_SOURCEMAP=false`
 
 ### Specifying pages for the window to live
-Our window is conditionally loaded on pages that we have "white-listed". These can be modified in the `public/class-cambria-chatframe-public.php`
-file in the `$acceptedPathArray` array. 
+Our window is conditionally loaded on pages that we have "white-listed". These can be modified in the 
+`public/class-cambria-chatframe-public.php` file in the `$acceptedPathArray` array. 
