@@ -32,27 +32,6 @@ if ( ! defined( 'WPINC' ) ) {
 define( 'PLUGIN_NAME_VERSION', '1.0.0' );
 
 /**
- * The code that runs during plugin activation.
- * This action is documented in includes/class-cambria-chatframe-activator.php
- */
-function activate_cambria_chatframe() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-cambria-chatframe-activator.php';
-	Cambria_Chatframe_Activator::activate();
-}
-
-/**
- * The code that runs during plugin deactivation.
- * This action is documented in includes/class-cambria-chatframe-deactivator.php
- */
-function deactivate_cambria_chatframe() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-cambria-chatframe-deactivator.php';
-	Cambria_Chatframe_Deactivator::deactivate();
-}
-
-register_activation_hook( __FILE__, 'activate_cambria_chatframe' );
-register_deactivation_hook( __FILE__, 'deactivate_cambria_chatframe' );
-
-/**
  * The core plugin class that is used to define public-facing site hooks.
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-cambria-chatframe.php';
