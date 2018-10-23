@@ -45,6 +45,27 @@ function run_cambria_chatframe() {
 
 	$plugin = new Cambria_Chatframe();
 	$plugin->run();
-
 }
-run_cambria_chatframe();
+
+// Include array of paths that we want our window on
+include 'white-listed-pages.php'; 
+
+/**
+ * Grab the current url
+ * and separate by the / character
+ */
+
+$parsedUrlPath = $_SERVER['REQUEST_URI'];
+$arrayOfParsedUrlPath = explode("/", $parsedUrlPath);
+
+/**
+ * Check if the any part of our current path contains
+ * our white-listed paths, if so, mark enqueue scripts to
+ * true and terminate the loop
+ */
+
+foreach($arrayOfParsedUrlPath as $thisPath){
+	if(in_array($thisPath, $acceptedPathArray)){
+		run_cambria_chatframe();
+	} 
+}
