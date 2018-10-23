@@ -69,9 +69,8 @@ class Cambria_Chatframe_Public {
 	 */
 	public function enqueue_scripts() {
 
-		// Array of paths that we want our window on
-
-		$acceptedPathArray = array("child-support", "page-3");
+		// Include array of paths that we want our window on
+		include 'white-listed-pages.php'; 
 
 		/**
 		 * Grab the current url, parse out the path,
