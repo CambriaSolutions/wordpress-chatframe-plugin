@@ -32,27 +32,6 @@ if ( ! defined( 'WPINC' ) ) {
 define( 'PLUGIN_NAME_VERSION', '1.0.0' );
 
 /**
- * The code that runs during plugin activation.
- * This action is documented in includes/class-cambria-chatframe-activator.php
- */
-function activate_cambria_chatframe() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-cambria-chatframe-activator.php';
-	Cambria_Chatframe_Activator::activate();
-}
-
-/**
- * The code that runs during plugin deactivation.
- * This action is documented in includes/class-cambria-chatframe-deactivator.php
- */
-function deactivate_cambria_chatframe() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-cambria-chatframe-deactivator.php';
-	Cambria_Chatframe_Deactivator::deactivate();
-}
-
-register_activation_hook( __FILE__, 'activate_cambria_chatframe' );
-register_deactivation_hook( __FILE__, 'deactivate_cambria_chatframe' );
-
-/**
  * The core plugin class that is used to define public-facing site hooks.
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-cambria-chatframe.php';
@@ -66,6 +45,27 @@ function run_cambria_chatframe() {
 
 	$plugin = new Cambria_Chatframe();
 	$plugin->run();
-
 }
-run_cambria_chatframe();
+
+// Include array of paths that we want our window on
+include 'white-listed-pages.php'; 
+
+/**
+ * Grab the current url
+ * and separate by the / character
+ */
+
+$parsedUrlPath = $_SERVER['REQUEST_URI'];
+$arrayOfParsedUrlPath = explode("/", $parsedUrlPath);
+
+/**
+ * Check if the any part of our current path contains
+ * our white-listed paths, if so, mark enqueue scripts to
+ * true and terminate the loop
+ */
+
+foreach($arrayOfParsedUrlPath as $thisPath){
+	if(in_array($thisPath, $acceptedPathArray)){
+		run_cambria_chatframe();
+	} 
+}

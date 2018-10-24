@@ -60,7 +60,7 @@ class Cambria_Chatframe {
 	 * Define the core functionality of the plugin.
 	 *
 	 * Set the plugin name and the plugin version that can be used throughout the plugin.
-	 * Load the dependencies, define the locale, and set the hooks for the admin area and
+	 * Load the dependencies, and set the hooks for the admin area and
 	 * the public-facing side of the site.
 	 *
 	 * @since    1.0.0
@@ -75,7 +75,6 @@ class Cambria_Chatframe {
 
 		$this->load_dependencies();
 		$this->define_public_hooks();
-
 	}
 
 	/**
@@ -98,6 +97,7 @@ class Cambria_Chatframe {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
+		
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-cambria-chatframe-loader.php';
 
 		/**
