@@ -10,4 +10,4 @@
  */
 ?>
 
-<div id="cambria-chatframe"></div>
+<div id="root"></div>
