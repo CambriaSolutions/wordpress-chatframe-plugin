@@ -1,6 +1,6 @@
 {
-  "name": "newwindow",
-  "version": "0.1.0",
+  "name": "cambria-wordpress-chatframe",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@cambriasolutions/chatframe": "1.7.14",
