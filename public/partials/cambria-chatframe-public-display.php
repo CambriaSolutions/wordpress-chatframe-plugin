@@ -10,4 +10,4 @@
  */
 ?>
 
-<div id="root"></div>
+<div id="cambria-wordpress-chatframe"></div>
