@@ -11,7 +11,7 @@
  * @package           Cambria_Chatframe
  *
  * @wordpress-plugin
- * Plugin Name:       cambria-chatframe
+ * Plugin Name:       GenBot Chatframe
  * Plugin URI:        cambriasolutions.com
  * Description:       This plugin generates a chat window on specified pages containing a dialogflow agent
  * Version:           1.0.0
@@ -27,7 +27,7 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 /**
- * Currently plugin version.
+ * Current plugin version.
  */
 define( 'PLUGIN_NAME_VERSION', '1.0.0' );
 
@@ -47,7 +47,7 @@ function run_cambria_chatframe() {
 	$plugin->run();
 }
 
-// Include array of paths that we want our window on
+// Include array of url paths that we want our window to be present
 include 'white-listed-pages.php'; 
 
 /**

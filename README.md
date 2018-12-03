@@ -56,7 +56,7 @@ with `GENERATE_SOURCEMAP=false`
 ### Specifying pages for the window to live
 
 Our window is conditionally loaded on pages that we have "white-listed".
-These can be modified in the `public/class-cambria-chatframe-public.php` file in
+These can be modified in the `white-listed-pages.php` file in
 the `$acceptedPathArray` array.
 
 ## How it Works
@@ -86,9 +86,9 @@ the WordPress core. The process of a WordPress plugin is as follows:
 5. Then our plugin fires the `wp_enqueue_scripts`, which enqueues items that
    are meant to appear on the front end.
 
-6. The plugin then checks to see if the current page is part of our array of
+6. The plugin then checks to see if the current page contains part of our array of
    white-listed pages. These can be modified in the
-   `public/class-cambria-chatframe-public.php` file in the `$acceptedPathArray` array.
+   `white-listed-pages.php` file in the `$acceptedPathArray` array.
 
 7. If the current page is part of the array, our plugin scans the `/app/build/static/js/`
    folder, and calls `wp_enqueue_script` for each which registers and enqueues the included js files.
@@ -99,7 +99,7 @@ the WordPress core. The process of a WordPress plugin is as follows:
    so that the scripts are enqueued before `</body>` instead of in the `<head>`.
 
    Without this specification, our window will not populate because our js files
-   depend on the div with the id "root", which occurs just before our scripts are loaded.
+   depend on the div with the id "cambria-wordpress-chatframe", which occurs just before our scripts are loaded.
 
 9. Our compiled js creates the chatframe, and populates the div mentioned
    earlier.
