@@ -12,8 +12,8 @@ class App extends Component {
     return (
       <Chatframe
         primaryColor="#3bafbf"
-        secondaryColor="pink"
-        title="Health Agency Virtual Assistant"
+        secondaryColor="#3bafbf"
+        title="Gen"
         client="Dialogflow"
         clientOptions={dfWebhookOptions}
         fullscreen={false}
