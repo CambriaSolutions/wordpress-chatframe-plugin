@@ -74,7 +74,9 @@ class Cambria_Chatframe {
 		$this->plugin_name = 'cambria-chatframe';
 
 		$this->load_dependencies();
+		$this->define_admin_hooks();
 		$this->define_public_hooks();
+		add_action('admin_menu', array($this, 'create_plugin_settings_page'));
 	}
 
 	/**
@@ -97,8 +99,12 @@ class Cambria_Chatframe {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-cambria-chatframe-loader.php';
+
+		/**
+		 * The class responsible for defining all actions that occur in the admin area.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-cambria-chatframe-admin.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
@@ -108,6 +114,19 @@ class Cambria_Chatframe {
 
 		$this->loader = new Cambria_Chatframe_Loader();
 
+	}
+
+	/**
+	 * Register all of the hooks related to the admin area functionality
+	 * of the plugin.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 */
+	private function define_admin_hooks() {
+		$plugin_admin = new Cambria_Chatframe_Admin( $this->get_plugin_name(), $this->get_version() );
+		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
+		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 	}
 
 
@@ -128,6 +147,19 @@ class Cambria_Chatframe {
 
 	}
 
+	public function create_plugin_settings_page() {
+		// Add the menu item and page
+		$page_title = 'My Awesome Settings Page';
+		$menu_title = 'Awesome Plugin';
+		$capability = 'manage_options';
+		$slug = 'smashing_fields';
+		$callback = array( $this, 'plugin_settings_page_content' );
+		$icon = 'dashicons-admin-plugins';
+		$position = 100;
+	
+		add_menu_page( $page_title, $menu_title, $capability, $slug, $callback, $icon, $position );
+	}
+	
 	/**
 	 * Run the loader to execute all of the hooks with WordPress.
 	 *
