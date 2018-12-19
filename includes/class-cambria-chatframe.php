@@ -76,7 +76,6 @@ class Cambria_Chatframe {
 		$this->load_dependencies();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
-		add_action('admin_menu', array($this, 'create_plugin_settings_page'));
 	}
 
 	/**
@@ -159,7 +158,7 @@ class Cambria_Chatframe {
 	
 		add_menu_page( $page_title, $menu_title, $capability, $slug, $callback, $icon, $position );
 	}
-	
+
 	/**
 	 * Run the loader to execute all of the hooks with WordPress.
 	 *

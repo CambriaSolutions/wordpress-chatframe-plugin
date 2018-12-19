@@ -70,18 +70,24 @@ foreach($arrayOfParsedUrlPath as $thisPath){
 	} 
 }
 
+
 add_action('admin_menu', 'my_admin_menu');
+add_action( 'admin_enqueue_scripts', 'admin_print_styles' );
+
 
 function my_admin_menu() {
-	add_menu_page( 'Settings Menue', 'Chatframe Settings', 'manage_options', 'wordpress-chatframe-plugin/cambria-chatframe-admin-page.php', 'cambria_chatframe_admin_page', '
+	add_menu_page( 'Settings Menu', 'Chatframe Settings', 'manage_options', 'wordpress-chatframe-plugin/cambria-chatframe-admin-page.php', 'cambria_chatframe_admin_page', '
 	dashicons-testimonial', 6  );
+}
+
+function admin_print_styles() {
+	wp_enqueue_style( 'admin-style-sheet', plugin_dir_url( __FILE__ ) . 'admin/css/cambria-chatframe-admin.css');
 }
 
 function cambria_chatframe_admin_page(){
 		?>
-		  <div>
-		  <?php screen_icon(); ?>
-		  <h2>My Plugin Page Title</h2>
+		  <div class="chatframe-admin-container">
+		  <h2 class="chatframe-admin-page-title">My Plugin Page Title</h2>
 		  <form method="post" action="options.php">
 		  <?php settings_fields( 'myplugin_options_group' ); ?>
 		  <h3>This is my option</h3>
