@@ -71,108 +71,79 @@ foreach($arrayOfParsedUrlPath as $thisPath){
 
 //https://www.sitepoint.com/wordpress-settings-api-build-custom-admin-page/ 
 
-add_action( 'admin_menu', 'stp_api_add_admin_menu' );
 add_action( 'admin_init', 'stp_api_settings_init' );
 
-function stp_api_add_admin_menu(  ) {
-	add_options_page( 'Settings API Page', 'Settings API Page', 'manage_options', 'settings-api-page', 'stp_api_options_page' );
+// Create the admin menu 
+function add_chatframe_admin_menu (){
+	add_options_page(
+		'Chatframe Display Options', 				// The title to be displayed in the browser window for this page.
+		'Chatframe Display Options',				// The text to be displayed for this menu item
+		'administrator',							// Which type of users can see this menu item
+		'chatframe-display-options',				// The unique ID - that is, the slug - for this menu item
+		'chatframe_options_page' 					// The name of the function to call when rendering the page for this menu
+	);
 }
+add_action('admin_menu', 'add_chatframe_admin_menu');
+
 
 function stp_api_settings_init(  ) {
-	register_setting( 'stpPlugin', 'stp_api_settings' );
 	add_settings_section(
-		'stp_api_stpPlugin_section',
-		__( 'Our Section Title', 'wordpress' ),
-		'stp_api_settings_section_callback',
-		'stpPlugin'
+		'chatframe_plugin_section',					// ID used to identify this section and with which to register options
+		'Chatframe Display Options',				// Title to be displayed on the administration page
+		'chatframe_settings_section_description',	// Callback used to render the description of the section
+		'chatframePlugin'							// Page on which to add this section of options
 	);
 	
 	add_settings_field(
-		'stp_api_text_field_0',
-		__( 'Our Field 0 Title', 'wordpress' ),
-		'stp_api_text_field_0_render',
-		'stpPlugin',
-		'stp_api_stpPlugin_section'
+		'homepage_option_checkbox',					// ID used to identify the field throughout the theme
+		'Display on Home Page',	                    // The label to the left of the option interface element
+		'chatframe_homepage_field',					 // The name of the function responsible for rendering the option interface
+		'chatframePlugin',							// The page on which this option will be displayed
+		'chatframe_plugin_section'					// The name of the section to which this field belongs
 	);
 	
 	add_settings_field(
-		'stp_api_select_field_1',
-		__( 'Our Field 1 Title', 'wordpress' ),
-		'stp_api_select_field_1_render',
-		'stpPlugin',
-		'stp_api_stpPlugin_section'
+		'desired_pages_text_field',
+		'Desired Pages',
+		'desired_pages_text_field_render',
+		'chatframePlugin',
+		'chatframe_plugin_section'
 	);
+
+	// Register the fields with WordPress
+	register_setting( 'chatframePlugin', 'chatframe_settings' );
 }
 
-function stp_api_text_field_0_render(  ) {
-	$options = get_option( 'stp_api_settings' );
+function chatframe_homepage_field() {
+	$options = get_option( 'chatframe_settings' );
 	?>
-			<input type='text' name='stp_api_settings[stp_api_text_field_0]' value='<?php echo $options['stp_api_text_field_0']; ?>'>
-			<?php
-		}
+	<input type="checkbox" id="homepage-checkbox" name="homepage-checkbox[chatframe_settings]"/>
+	
+	<?php
+}
+
+function desired_pages_text_field_render() {
+	$options = get_option( 'chatframe_settings' );
+	?>
+	<input type='text' name='chatframe_settings[chatframe_settings]' value='<?php echo $options['chatframe_settings']; ?>'>
+	<?php
+}
+
 		
-		function stp_api_select_field_1_render(  ) {
-			$options = get_option( 'stp_api_settings' );
-			?>
-			<select name='stp_api_settings[stp_api_select_field_1]'>
-				<option value='1' <?php selected( $options['stp_api_select_field_1'], 1 ); ?>>Option 1</option>
-				<option value='2' <?php selected( $options['stp_api_select_field_1'], 2 ); ?>>Option 2</option>
-			</select>
-			
-			<?php
-		}
+function chatframe_settings_section_description(  ) {
+	echo 'This Section Description';
+}
 		
-		function stp_api_settings_section_callback(  ) {
-			echo __( 'This Section Description', 'wordpress' );
-		}
-		
-		function stp_api_options_page(  ) {
-			?>
-			<form action='options.php' method='post'>
-				
-				<h2>Sitepoint Settings API Admin Page</h2>
-				
-				<?php
-				settings_fields( 'stpPlugin' );
-				do_settings_sections( 'stpPlugin' );
-				submit_button();
-				?>
-		
+function chatframe_options_page(  ) {
+	$options = get_option( 'chatframe_settings' );
+	echo implode($options);
+	?>
+	<form action='options.php' method='post'>
+		<?php
+		settings_fields( 'chatframePlugin' );
+		do_settings_sections( 'chatframePlugin' );
+		submit_button();
+		?>
 	</form>
 	<?php
-		}
-		
-		/*
-		add_action('admin_menu', 'my_admin_menu');
-		add_action( 'admin_enqueue_scripts', 'admin_print_styles' );
-		
-		
-		function my_admin_menu() {
-			add_menu_page( 'Settings Menu', 'Chatframe Settings', 'manage_options', 'wordpress-chatframe-plugin/cambria-chatframe-admin-page.php', 'cambria_chatframe_admin_page', '
-			dashicons-testimonial', 6  );
-		}
-		
-		function admin_print_styles() {
-			wp_enqueue_style( 'admin-style-sheet', plugin_dir_url( __FILE__ ) . 'admin/css/cambria-chatframe-admin.css');
-		}
-		
-		function cambria_chatframe_admin_page(){
-				?>
-				  <div class="chatframe-admin-container">
-				  <h2 class="chatframe-admin-page-title">My Plugin Page Title</h2>
-				  <form method="post" action="options.php">
-				  <?php settings_fields( 'myplugin_options_group' ); ?>
-				  <h3>This is my option</h3>
-				  <p>Some text here.</p>
-				  <table>
-				  <tr valign="top">
-				  <th scope="row"><label for="myplugin_option_name">Label</label></th>
-				  <td><input type="text" id="myplugin_option_name" name="myplugin_option_name" value="<?php echo get_option('myplugin_option_name'); ?>" /></td>
-				  </tr>
-				  </table>
-				  <?php  submit_button(); ?>
-				  </form>
-				  </div>
-				<?php
-				} ?>
-				*/
+}
