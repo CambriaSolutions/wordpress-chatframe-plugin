@@ -23,7 +23,7 @@ class App extends Component {
       <Chatframe
         primaryColor='#3bafbf'
         secondaryColor='#3bafbf'
-        title='Cambria'
+        title='Gen'
         client='Dialogflow'
         clientOptions={dfWebhookOptions}
         fullscreen={false}
