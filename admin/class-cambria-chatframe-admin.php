@@ -22,7 +22,7 @@
  * @author     Cambria Solutions <marketing@cambriasolutions.com>
  */
 class Cambria_Chatframe_Admin {
-	function my_plugin_menu() {
+	function cambria_chatframe_menu() {
 
 		return add_submenu_page( 'options-general.php', 'Gen',  'Gen', 'manage_options', 'cambria-webchat-admin', array($this, 'cambria_chatframe_options') );
 
