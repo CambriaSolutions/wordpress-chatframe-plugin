@@ -901,10 +901,10 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@cambriasolutions/chatframe@^1.14.3":
-  version "1.14.3"
-  resolved "https://registry.yarnpkg.com/@cambriasolutions/chatframe/-/chatframe-1.14.3.tgz#aceff4030394553f0889518529482775ac4b42b3"
-  integrity sha512-SelMSw30dP68H0bjwYnDc6VGorIa51a/XUVQXvKOx8o9AguA3ORiI9hKLzdqvYdEKSq+nwNrJ7IlExRILOUtfA==
+"@cambriasolutions/chatframe@^1.16.1":
+  version "1.16.1"
+  resolved "https://registry.yarnpkg.com/@cambriasolutions/chatframe/-/chatframe-1.16.1.tgz#4d840ec260d111c83907fbf592e810abfcebf874"
+  integrity sha512-37yJ5zLmziYis1WWBJSrsvzePKnKP9nYNnYg9gieY7UTiLyJmcSNPDjNjP9lZvc6PvypNyW7LefargAUd3rDug==
   dependencies:
     "@material-ui/core" "^3.9.2"
     "@material-ui/icons" "^3.0.1"
@@ -912,6 +912,7 @@
     dotenv "^6.2.0"
     global "^4.3.2"
     lodash "^4.17.11"
+    markdown-to-jsx "^6.9.1"
     react "^16.6.3"
     react-dom "^16.6.3"
     react-google-maps "^9.4.5"
@@ -5827,6 +5828,14 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
+markdown-to-jsx@^6.9.1:
+  version "6.9.3"
+  resolved "https://registry.yarnpkg.com/markdown-to-jsx/-/markdown-to-jsx-6.9.3.tgz#31719e3c54517ba9805db81d53701b89f5d2ed7e"
+  integrity sha512-iXteiv317VZd1vk/PBH5MWMD4r0XWekoWCHRVVadBcnCtxavhtfV1UaEaQgq9KyckTv31L60ASh5ZVVrOh37Qg==
+  dependencies:
+    prop-types "^15.6.2"
+    unquote "^1.1.0"
+
 marker-clusterer-plus@^2.1.4:
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/marker-clusterer-plus/-/marker-clusterer-plus-2.1.4.tgz#f8eff74d599dab3b7d0e3fed5264ea0e704f5d67"
@@ -9189,9 +9198,10 @@ unpipe@1.0.0, unpipe@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/unpipe/-/unpipe-1.0.0.tgz#b2bf4ee8514aae6165b4817829d21b2ef49904ec"
 
-unquote@~1.1.1:
+unquote@^1.1.0, unquote@~1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/unquote/-/unquote-1.1.1.tgz#8fded7324ec6e88a0ff8b905e7c098cdc086d544"
+  integrity sha1-j97XMk7G6IoP+LkF58CYzcCG1UQ=
 
 unset-value@^1.0.0:
   version "1.0.0"

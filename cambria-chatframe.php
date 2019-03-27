@@ -59,13 +59,16 @@ $parsedUrlPath = $_SERVER['REQUEST_URI'];
 $arrayOfParsedUrlPath = explode("/", $parsedUrlPath);
 
 /**
- * Check if the any part of our current path contains
- * our white-listed paths, if so, mark enqueue scripts to
- * true and terminate the loop
+ * Check if the any part of our current path contains the root path or
+ * our white-listed paths, if so, mark enqueue scripts to true and 
+ * terminate the loop
  */
-
-foreach($arrayOfParsedUrlPath as $thisPath){
-	if(in_array($thisPath, $acceptedPathArray)){
-		run_cambria_chatframe();
-	} 
-}
+if($parsedUrlPath === "/"){
+	run_cambria_chatframe();
+}else {
+	foreach($arrayOfParsedUrlPath as $thisPath){
+		if(in_array($thisPath, $acceptedPathArray)){
+			run_cambria_chatframe();
+		} 
+	}
+};
