@@ -11,7 +11,7 @@
  * @package           Cambria_Chatframe
  *
  * @wordpress-plugin
- * Plugin Name:       cambria-chatframe
+ * Plugin Name:       Gen
  * Plugin URI:        cambriasolutions.com
  * Description:       This plugin generates a chat window on specified pages containing a dialogflow agent
  * Version:           1.0.0
