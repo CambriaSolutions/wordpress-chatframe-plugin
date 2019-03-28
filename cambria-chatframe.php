@@ -12,11 +12,9 @@
  *
  * @wordpress-plugin
  * Plugin Name:       Gen
- * Plugin URI:        cambriasolutions.com
- * Description:       This plugin generates a chat window on specified pages containing a dialogflow agent
+ * Description:       A plugin to include Gen's chatframe on specified pages.
  * Version:           1.0.0
  * Author:            Cambria Solutions
- * Author URI:        cambriasolutions.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  */
