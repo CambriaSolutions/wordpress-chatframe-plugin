@@ -18,7 +18,12 @@ or XAMPP for PC.
 
 ## Prior to Installation to WordPress site
 
-1. Ensure all required props and env variables are populated with desired values
+1. Create .env file with the following
+
+- `GOOGLE_MAPS_KEY=your_google_maps_api_key` for geolocation
+- `GENERATE_SOURCEMAP=false` to exclude source map from being created
+
+2. Ensure all required props are populated with desired values
 
 ```
 <ChatWindow
@@ -44,8 +49,8 @@ or XAMPP for PC.
 
 ```
 {
-eventUrl: 'https://*project*.cloudfunctions.net/eventRequest',
-textUrl: 'https://*project*cloudfunctions.net/textRequest',
+eventUrl: 'https://[your_project].cloudfunctions.net/eventRequest',
+textUrl: 'https://[your_project].cloudfunctions.net/textRequest',
 }
 ```
 
@@ -64,10 +69,10 @@ centerCoordinates: {
 }
 ```
 
-2. Navigate to the `app` directory and install required modules: `yarn` (or `npm install`)
-3. Build app `yarn build` (or `npm run build`)
-4. Remove `node_modules` folder
-5. Zip full directory
+3. Navigate to the `app` directory and install required modules: `yarn` (or `npm install`)
+4. Build app `yarn build` (or `npm run build`)
+5. Remove `node_modules` folder
+6. Zip full directory
 
 ## Installation
 
