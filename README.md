@@ -16,12 +16,67 @@ or XAMPP for PC.
 - [Mac](https://codex.wordpress.org/Installing_WordPress_Locally_on_Your_Mac_With_MAMP)
 - [PC](https://codex.wordpress.org/Test_Driving_WordPress#Installing_WordPress_on_Your_Windows_Desktop)
 
+## Prior to Installation to WordPress site
+
+1. Create .env file with the following
+
+- `GOOGLE_MAPS_KEY=your_google_maps_api_key` for geolocation
+- `GENERATE_SOURCEMAP=false` to exclude source map from being created
+
+2. Ensure all required props are populated with desired values
+
+```
+<ChatWindow
+    primaryColor="#3bafbf"
+    secondaryColor="#000"
+    headerColor="#3bafbf"
+    title="Chat Title"
+    client="Dialogflow"
+    clientOptions={options}
+    fullscreen={false}
+    initialActive={false}
+    policyText={privacyPolicy}
+    mapConfig={mapConfig}
+  />
+```
+
+- `primaryColor` can be any hex or material-ui color (e.g. 'blue', 'red', 'yellow', 'cyan')
+- `secondaryColor` can be any hex or material-ui color (e.g. 'blue', 'red', 'yellow', 'cyan')
+- `headerColor` can be any hex or material-ui color (e.g. 'blue', 'red', 'yellow', 'cyan')
+- `title` can be any string
+- `client` can only currently be 'Dialogflow'
+- `clientOptions` is an object containing URLs for fulfillment APIs:
+
+```
+{
+eventUrl: 'https://[your_project].cloudfunctions.net/eventRequest',
+textUrl: 'https://[your_project].cloudfunctions.net/textRequest',
+}
+```
+
+- `fullscreen` is whether or not the window is currently fullscreen
+- `initialActive` describes whether or not the window is open and active on page load
+- `policyText` can be any string
+- `mapConfig` an object containing a google maps key and center coordinates
+
+```
+{
+googleMapsKey: process.env.GOOGLE_MAPS_KEY
+centerCoordinates: {
+  lat: latitude,
+  lng: longitude,
+}
+}
+```
+
+3. Navigate to the `app` directory and install required modules: `yarn` (or `npm install`)
+4. Build app `yarn build` (or `npm run build`)
+5. Remove `node_modules` folder
+6. Zip full directory
+
 ## Installation
 
-1. Upload `cambria-chatframe.php` to the `/wp-content/plugins` directory
-2. Activate the plugin through the `Plugins` menu in WordPress
-
-## Customization
+1. Upload the zipped file to the plugins menu and activate
 
 ### Incorporation the chatbot itself
 
