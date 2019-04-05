@@ -39,7 +39,7 @@ or XAMPP for PC.
 - `secondaryColor` can be any hex or material-ui color (e.g. 'blue', 'red', 'yellow', 'cyan')
 - `headerColor` can be any hex or material-ui color (e.g. 'blue', 'red', 'yellow', 'cyan')
 - `title` can be any string
-- `client` can only currently be 'dialogflow'
+- `client` can only currently be 'Dialogflow'
 - `clientOptions` is an object containing URLs for fulfillment APIs:
 
 ```
