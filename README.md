@@ -37,6 +37,8 @@ or XAMPP for PC.
     initialActive={false}
     policyText={privacyPolicy}
     mapConfig={mapConfig}
+    feedbackUrl={feedbackUrl}
+    activationText={activationText}
   />
 ```
 
@@ -60,13 +62,29 @@ textUrl: 'https://[your_project].cloudfunctions.net/textRequest',
 - `mapConfig` an object containing a google maps key and center coordinates
 
 ```
+
+```
+
+- `feedbackUrl` a URL string of the endpoint to send feedback data to analytics
+
+```feedbackUrl =
+  'https://us-central1-webchat-analytics.cloudfunctions.net/storeFeedback'
+```
+
+- `activationText` a string message to call out action
+
+```activationText = 'Talk to Gen'
+
+```
+
 {
 googleMapsKey: process.env.GOOGLE_MAPS_KEY
 centerCoordinates: {
-  lat: latitude,
-  lng: longitude,
+lat: latitude,
+lng: longitude,
 }
 }
+
 ```
 
 3. Navigate to the `app` directory and install required modules: `yarn` (or `npm install`)
@@ -158,3 +176,4 @@ the WordPress core. The process of a WordPress plugin is as follows:
 
 9. Our compiled js creates the chatframe, and populates the div mentioned
    earlier.
+```
