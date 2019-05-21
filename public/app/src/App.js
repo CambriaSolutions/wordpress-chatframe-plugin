@@ -34,7 +34,7 @@ class App extends Component {
         client='Dialogflow'
         clientOptions={dfWebhookOptions}
         fullscreen={false}
-        initialActive={false}
+        initialActive={true}
         policyText={policyText}
         mapConfig={mapConfig}
         feedbackUrl={feedbackUrl}
