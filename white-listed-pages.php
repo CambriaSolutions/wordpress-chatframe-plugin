@@ -2,4 +2,4 @@
 
 // Urls containing any of theses elements will allow our chatframe
 // to appear on the page
- $acceptedPathArray = array("child-support", "page-3");
+ $acceptedPathArray = array("child-support");
