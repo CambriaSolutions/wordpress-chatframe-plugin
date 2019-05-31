@@ -61,12 +61,9 @@ $arrayOfParsedUrlPath = explode("/", $parsedUrlPath);
  * our white-listed paths, if so, mark enqueue scripts to true and 
  * terminate the loop
  */
-if($parsedUrlPath === "/"){
-	run_cambria_chatframe();
-}else {
-	foreach($arrayOfParsedUrlPath as $thisPath){
-		if(in_array($thisPath, $acceptedPathArray)){
-			run_cambria_chatframe();
-		} 
-	}
-};
+
+foreach($arrayOfParsedUrlPath as $thisPath){
+	if(in_array($thisPath, $acceptedPathArray)){
+		run_cambria_chatframe();
+	} 
+}
