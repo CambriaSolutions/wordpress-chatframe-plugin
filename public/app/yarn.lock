@@ -901,10 +901,10 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@cambriasolutions/chatframe@^1.18.3":
-  version "1.18.3"
-  resolved "https://registry.yarnpkg.com/@cambriasolutions/chatframe/-/chatframe-1.18.3.tgz#6455cd521ababc60a0baa46bdf0744accd28f5cc"
-  integrity sha512-QJE7+DvdEoVf5Nu7HGnqepWxYtzPEpvuOM2AmTPSIo4bj82fj9PPGwTdsYeW8tCB6He/wSb5o7KNsMheT0dglQ==
+"@cambriasolutions/chatframe@^1.18.5":
+  version "1.18.5"
+  resolved "https://registry.yarnpkg.com/@cambriasolutions/chatframe/-/chatframe-1.18.5.tgz#243d7e938d7e87d1f6532f15356147a947e5a642"
+  integrity sha512-w9ugLI5eqTt/TBgeyZcMP466aPUtOG+0fWZZSBDMpQugT/I5n6FoaMi30xfKipDzAIiwvykWZALsrtpghLLqdw==
   dependencies:
     "@material-ui/core" "^3.9.2"
     "@material-ui/icons" "^3.0.1"
