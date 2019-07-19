@@ -22,6 +22,17 @@ export const mapConfig = {
 
 export const activationText = 'Talk to Gen'
 
+const defaultOpenPages = ['child-support']
+
+const currentUrlPath = window.location.pathname.split('/')
+let initialActive = false
+
+defaultOpenPages.forEach(page => {
+  if (currentUrlPath === page) {
+    initialActive = true
+  }
+})
+
 class App extends Component {
   render() {
     return (
@@ -33,7 +44,7 @@ class App extends Component {
         client='Dialogflow'
         clientOptions={dfWebhookOptions}
         fullscreen={false}
-        initialActive={true}
+        initialActive={initialActive}
         policyText={policyText}
         mapConfig={mapConfig}
         feedbackUrl={feedbackUrl}
