@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import Chatframe from '@cambriasolutions/chatframe'
 
 const dfWebhookOptions = {
-  eventUrl: 'https://us-central1-mdhs-csa.cloudfunctions.net/eventRequest',
-  textUrl: 'https://us-central1-mdhs-csa.cloudfunctions.net/textRequest',
+  eventUrl: 'https://us-central1-mdhs-csa-dev.cloudfunctions.net/eventRequest',
+  textUrl: 'https://us-central1-mdhs-csa-dev.cloudfunctions.net/textRequest',
 }
 
 const policyText =
@@ -22,9 +22,9 @@ export const mapConfig = {
 
 export const activationText = 'Talk to Gen'
 
-const defaultOpenPages = ['child-support']
+const defaultOpenPages = ['/child-support']
 
-const currentUrlPath = window.location.pathname.split('/')
+const currentUrlPath = window.location.pathname
 let initialActive = false
 
 defaultOpenPages.forEach(page => {

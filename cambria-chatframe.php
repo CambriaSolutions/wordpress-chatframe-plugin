@@ -49,21 +49,16 @@ function run_cambria_chatframe() {
 include 'white-listed-pages.php'; 
 
 /**
- * Grab the current url
- * and separate by the / character
+ * Grab the current url path.
  */
 
 $parsedUrlPath = $_SERVER['REQUEST_URI'];
-$arrayOfParsedUrlPath = explode("/", $parsedUrlPath);
 
 /**
- * Check if the any part of our current path contains the root path or
- * our white-listed paths, if so, mark enqueue scripts to true and 
- * terminate the loop
+ * Check if the current path contains the root path or
+ * our white-listed paths.
  */
 
-foreach($arrayOfParsedUrlPath as $thisPath){
-	if(in_array($thisPath, $acceptedPathArray)){
-		run_cambria_chatframe();
-	} 
+if(in_array($parsedUrlPath, $acceptedPathArray)){
+	run_cambria_chatframe();
 }
