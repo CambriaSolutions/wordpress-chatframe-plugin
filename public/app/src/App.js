@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import Chatframe from '@cambriasolutions/chatframe'
 
 const dfWebhookOptions = {
-  eventUrl: 'https://us-central1-mdhs-csa-dev.cloudfunctions.net/eventRequest',
-  textUrl: 'https://us-central1-mdhs-csa-dev.cloudfunctions.net/textRequest',
+  eventUrl: 'https://us-central1-mdhs-csa.cloudfunctions.net/eventRequest',
+  textUrl: 'https://us-central1-mdhs-csa.cloudfunctions.net/textRequest',
 }
 
 const policyText =
