@@ -4,7 +4,7 @@
  * The public-facing functionality of the plugin.
  *
  * @link       cambriasolutions.com
- * @since      1.0.0
+ * @since      1.1.0
  *
  * @package    Cambria_Chatframe
  * @subpackage Cambria_Chatframe/public
