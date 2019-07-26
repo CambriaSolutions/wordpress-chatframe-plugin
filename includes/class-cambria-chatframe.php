@@ -7,7 +7,7 @@
  * public-facing side of the site and the admin area.
  *
  * @link       cambriasolutions.com
- * @since      1.0.0
+ * @since      1.1.0
  *
  * @package    Cambria_Chatframe
  * @subpackage Cambria_Chatframe/includes
@@ -21,7 +21,7 @@
  * Also maintains the unique identifier of this plugin as well as the current
  * version of the plugin.
  *
- * @since      1.0.0
+ * @since      1.1.0
  * @package    Cambria_Chatframe
  * @subpackage Cambria_Chatframe/includes
  * @author     Cambria Solutions <marketing@cambriasolutions.com>
@@ -32,7 +32,7 @@ class Cambria_Chatframe {
 	 * The loader that's responsible for maintaining and registering all hooks that power
 	 * the plugin.
 	 *
-	 * @since    1.0.0
+	 * @since    1.1.0
 	 * @access   protected
 	 * @var      Cambria_Chatframe_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
@@ -41,7 +41,7 @@ class Cambria_Chatframe {
 	/**
 	 * The unique identifier of this plugin.
 	 *
-	 * @since    1.0.0
+	 * @since    1.1.0
 	 * @access   protected
 	 * @var      string    $plugin_name    The string used to uniquely identify this plugin.
 	 */
@@ -50,7 +50,7 @@ class Cambria_Chatframe {
 	/**
 	 * The current version of the plugin.
 	 *
-	 * @since    1.0.0
+	 * @since    1.1.0
 	 * @access   protected
 	 * @var      string    $version    The current version of the plugin.
 	 */
@@ -63,13 +63,13 @@ class Cambria_Chatframe {
 	 * Load the dependencies, and set the hooks for the admin area and
 	 * the public-facing side of the site.
 	 *
-	 * @since    1.0.0
+	 * @since    1.1.0
 	 */
 	public function __construct() {
 		if ( defined( 'PLUGIN_NAME_VERSION' ) ) {
 			$this->version = PLUGIN_NAME_VERSION;
 		} else {
-			$this->version = '1.0.0';
+			$this->version = '1.1.0';
 		}
 		$this->plugin_name = 'cambria-chatframe';
 
@@ -90,7 +90,7 @@ class Cambria_Chatframe {
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
 	 *
-	 * @since    1.0.0
+	 * @since    1.1.0
 	 * @access   private
 	 */
 	private function load_dependencies() {
@@ -119,7 +119,7 @@ class Cambria_Chatframe {
 	 * Register all of the hooks related to the public-facing functionality
 	 * of the plugin.
 	 *
-	 * @since    1.0.0
+	 * @since    1.1.0
 	 * @access   private
 	 */
 	private function define_public_hooks() {
@@ -143,7 +143,7 @@ class Cambria_Chatframe {
 	/**
 	 * Run the loader to execute all of the hooks with WordPress.
 	 *
-	 * @since    1.0.0
+	 * @since    1.1.0
 	 */
 	public function run() {
 		$this->loader->run();
@@ -153,7 +153,7 @@ class Cambria_Chatframe {
 	 * The name of the plugin used to uniquely identify it within the context of
 	 * WordPress and to define internationalization functionality.
 	 *
-	 * @since     1.0.0
+	 * @since     1.1.0
 	 * @return    string    The name of the plugin.
 	 */
 	public function get_plugin_name() {
@@ -163,7 +163,7 @@ class Cambria_Chatframe {
 	/**
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
-	 * @since     1.0.0
+	 * @since     1.1.0
 	 * @return    Cambria_Chatframe_Loader    Orchestrates the hooks of the plugin.
 	 */
 	public function get_loader() {
@@ -173,7 +173,7 @@ class Cambria_Chatframe {
 	/**
 	 * Retrieve the version number of the plugin.
 	 *
-	 * @since     1.0.0
+	 * @since     1.1.0
 	 * @return    string    The version number of the plugin.
 	 */
 	public function get_version() {

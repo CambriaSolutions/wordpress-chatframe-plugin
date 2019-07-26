@@ -23,7 +23,7 @@
 class Cambria_Chatframe_Public {
 
 	/**
-	 * @since    1.0.0
+	 * @since    1.1.0
 	 * @access   private
 	 * @var      string    $plugin_name   cambria-chatframe
 	 */
@@ -31,16 +31,16 @@ class Cambria_Chatframe_Public {
 
 	/**
 	 *
-	 * @since    1.0.0
+	 * @since    1.1.0
 	 * @access   private
-	 * @var      string    $version   1.0.0
+	 * @var      string    $version   1.1.0
 	 */
 	private $version;
 
 	/**
 	 * Initialize the class and set its properties.
 	 *
-	 * @since    1.0.0
+	 * @since    1.1.0
 	 * @param      string    $plugin_name    
 	 * @param      string    $version    
 	 */
@@ -63,7 +63,7 @@ class Cambria_Chatframe_Public {
 	/**
 	 * Register the JavaScript for the public-facing side of the site.
 	 *
-	 * @since    1.0.0
+	 * @since    1.1.0
 	 */
 	public function enqueue_scripts() {
 
