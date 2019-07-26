@@ -52,7 +52,7 @@ include 'white-listed-pages.php';
  * Grab the current url path.
  */
 
-$parsedUrlPath = $_SERVER['REQUEST_URI'];
+$parsedUrlPath = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 
 /**
  * Check if the current path contains the root path or
