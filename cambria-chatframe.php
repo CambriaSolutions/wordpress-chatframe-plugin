@@ -11,8 +11,8 @@
  * @package           Cambria_Chatframe
  *
  * @wordpress-plugin
- * Plugin Name:       Gen
- * Description:       A plugin to include Gen's chatframe on specified pages.
+ * Plugin Name:       Bee
+ * Description:       A plugin to include Bee's chatframe on specified pages.
  * Version:           1.1.0
  * Author:            Cambria Solutions
  * License:           GPL-2.0+

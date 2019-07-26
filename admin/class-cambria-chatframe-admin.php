@@ -63,7 +63,7 @@ class Cambria_Chatframe_Admin {
 
     function cambria_chatframe_options() {
 			echo '<div class="wrap">';
-			echo '<h2>Gen Settings</h2>';
+			echo '<h2>Bee Settings</h2>';
 			echo '<p>To be discovered.</p>';
 			echo '</div>';
     }
