@@ -20,7 +20,7 @@ export const mapConfig = {
   },
 }
 
-export const activationText = 'Talk to Bee'
+export const activationText = 'Talk to Gen'
 
 const defaultOpenPages = ['child-support']
 
@@ -39,7 +39,7 @@ class App extends Component {
         primaryColor='#6497AD'
         secondaryColor='#6497AD'
         headerColor='#6497AD'
-        title='Bee'
+        title='Gen'
         client='Dialogflow'
         clientOptions={dfWebhookOptions}
         fullscreen={false}
