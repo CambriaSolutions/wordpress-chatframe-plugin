@@ -22,13 +22,12 @@ export const mapConfig = {
 
 export const activationText = 'Talk to Gen'
 
-const defaultOpenPages = ['/child-support']
+const defaultOpenPages = ['child-support']
 
 const currentUrlPath = window.location.pathname
 let initialActive = false
-
 defaultOpenPages.forEach(page => {
-  if (currentUrlPath === page) {
+  if (currentUrlPath && currentUrlPath.includes(page)) {
     initialActive = true
   }
 })

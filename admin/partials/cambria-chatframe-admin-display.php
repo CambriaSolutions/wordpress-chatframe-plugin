@@ -6,7 +6,7 @@
  * This file is used to markup the admin-facing aspects of the plugin.
  *
  * @link       cambriasolutions.com
- * @since      1.0.0
+ * @since      1.1.0
  *
  * @package    Cambria_Chatframe
  * @subpackage Cambria_Chatframe/admin/partials
