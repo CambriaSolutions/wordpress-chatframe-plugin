@@ -7,13 +7,13 @@
  * that starts the plugin.
  *
  * @link              cambriasolutions.com
- * @since             1.1.0
+ * @since             2.0.0
  * @package           Cambria_Chatframe
  *
  * @wordpress-plugin
- * Plugin Name:       Bee
- * Description:       A plugin to include Bee's chatframe on specified pages.
- * Version:           1.1.0
+ * Plugin Name:       Gen 2.0
+ * Description:       A plugin to include Gen's chatframe on specified pages.
+ * Version:           2.0.0
  * Author:            Cambria Solutions
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
@@ -27,7 +27,7 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Current plugin version.
  */
-define( 'PLUGIN_NAME_VERSION', '1.1.0' );
+define( 'PLUGIN_NAME_VERSION', '2.0.0' );
 
 /**
  * The core plugin class that is used to define public-facing site hooks.
