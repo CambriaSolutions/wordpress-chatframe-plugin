@@ -22,7 +22,7 @@ export const mapConfig = {
 
 export const activationText = 'Talk to Gen'
 
-const defaultOpenPages = ['child-support']
+const defaultOpenPages = ['']
 
 const currentUrlPath = window.location.pathname
 let initialActive = false
