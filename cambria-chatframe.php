@@ -27,7 +27,7 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Current plugin version.
  */
-define( 'PLUGIN_NAME_VERSION', '2.1.0' );
+define( 'PLUGIN_NAME_VERSION', '2.1.1' );
 
 /**
  * The core plugin class that is used to define public-facing site hooks.
