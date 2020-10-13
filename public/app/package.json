@@ -13,7 +13,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "generate-plugin": "npm install && npm run build && cd scripts && node createPluginZip.js"
   },
   "eslintConfig": {
     "extends": "react-app"
